@@ -11,6 +11,36 @@ namespace Fleshgrinder\Core;
  */
 final class Value {
 
+	/** @see https://php.net/types.array */
+	const TYPE_ARRAY = 'array';
+
+	/** @see https://php.net/types.boolean */
+	const TYPE_BOOL = 'boolean';
+
+	/** @see https://php.net/types.resource */
+	const TYPE_CLOSED_RESOURCE = 'closed resource';
+
+	/** @see https://php.net/types.float */
+	const TYPE_FLOAT = 'float';
+
+	/** @see https://php.net/types.integer */
+	const TYPE_INT = 'integer';
+
+	/** @see https://php.net/types.null */
+	const TYPE_NULL = 'null';
+
+	/** @see https://php.net/types.object */
+	const TYPE_OBJECT = 'object';
+
+	/** @see https://php.net/types.resource */
+	const TYPE_RESOURCE = 'resource';
+
+	/** @see https://php.net/types.string */
+	const TYPE_STRING = 'string';
+
+	/** Final Abstract Class */
+	private function __construct() { }
+
 	/**
 	 * Get a human-readable description of the given value’s type as used by
 	 * PHP itself in (error) messages.
@@ -34,6 +64,8 @@ final class Value {
 	 * not be possible that this happens and a bug should be filed against PHP
 	 * if this is encountered.
 	 *
+	 * @see \get_class()
+	 * @see \gettype()
 	 * @param mixed $value
 	 *     Value to inspect.
 	 * @return string
@@ -41,23 +73,23 @@ final class Value {
 	 */
 	public static function getType($value) {
 		if ($value === \null) {
-			return 'null';
+			return static::TYPE_NULL;
 		}
 
 		if (\is_array($value)) {
-			return 'array';
+			return static::TYPE_ARRAY;
 		}
 
 		if (\is_bool($value)) {
-			return 'boolean';
+			return static::TYPE_BOOL;
 		}
 
 		if (\is_float($value)) {
-			return 'float';
+			return static::TYPE_FLOAT;
 		}
 
 		if (\is_int($value)) {
-			return 'integer';
+			return static::TYPE_INT;
 		}
 
 		if (\is_object($value)) {
@@ -65,15 +97,15 @@ final class Value {
 		}
 
 		if (\is_string($value)) {
-			return 'string';
+			return static::TYPE_STRING;
 		}
 
 		if (\is_resource($value)) {
-			return 'resource';
+			return static::TYPE_RESOURCE;
 		}
 
 		if (\get_resource_type($value) === 'Unknown') {
-			return 'closed resource';
+			return static::TYPE_CLOSED_RESOURCE;
 		}
 
 		// @codeCoverageIgnoreStart
@@ -82,8 +114,5 @@ final class Value {
 		return 'unknown';
 		// @codeCoverageIgnoreEnd
 	}
-
-	// final abstract class
-	private function __construct(){}
 
 }

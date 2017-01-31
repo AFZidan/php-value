@@ -17,10 +17,11 @@ This command requires you to have Composer installed globally, as explained in
  Composer documentation.
 
 ## Usage
-The `Value` class currently contains a single static method called `getValue`.
- There are currently no plans to extend this API and the following functionality
- is considered feature complete unless new types are added or old ones are
- removed.
+The `Value` class currently contains a single static method called `getValue`
+ and constants with the names of each of PHP’s types, corresponding to the
+ values returned by the `getValue` method. There are currently no plans to
+ extend this API and the following functionality is considered feature complete
+ unless new types are added or old ones are removed.
 
 ```php
 <?php
@@ -62,6 +63,26 @@ DateTimeImmutable
 string
 resource
 closed resource
+```
+
+This output corresponds to the available constants in the class with the
+ exception for the concrete class names:
+
+```php
+<?php
+
+use Fleshgrinder\Core\Value;
+
+echo Value::TYPE_ARRAY;             // array
+echo Value::TYPE_BOOL;              // boolean
+echo Value::TYPE_CLOSED_RESOURCE;   // closed resource
+echo Value::TYPE_FLOAT;             // float
+echo Value::TYPE_INT;               // integer
+echo Value::TYPE_NULL;              // null
+echo Value::TYPE_OBJECT;            // object
+echo Value::TYPE_RESOURCE;          // resource
+echo Value::TYPE_STRING;            // string
+
 ```
 
 The method comes in very handy during the creation of error messages. One of
