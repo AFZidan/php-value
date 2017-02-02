@@ -66,7 +66,8 @@ closed resource
 ```
 
 This output corresponds to the available constants in the class with the
- exception for the concrete class names:
+ exception for the concrete class names and the additionally available
+ callable pseudo type:
 
 ```php
 <?php
@@ -75,6 +76,7 @@ use Fleshgrinder\Core\Value;
 
 echo Value::TYPE_ARRAY;             // array
 echo Value::TYPE_BOOL;              // boolean
+echo Value::TYPE_CALLABLE;          // callable
 echo Value::TYPE_CLOSED_RESOURCE;   // closed resource
 echo Value::TYPE_FLOAT;             // float
 echo Value::TYPE_INT;               // integer

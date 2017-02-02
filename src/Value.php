@@ -17,6 +17,9 @@ final class Value {
 	/** @see https://php.net/types.boolean */
 	const TYPE_BOOL = 'boolean';
 
+	/** @see https://php.net/types.callable */
+	const TYPE_CALLABLE = 'callable';
+
 	/** @see https://php.net/types.resource */
 	const TYPE_CLOSED_RESOURCE = 'closed resource';
 
