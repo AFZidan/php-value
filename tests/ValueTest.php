@@ -9,7 +9,6 @@ namespace Fleshgrinder\Core;
 use PHPUnit\Framework\TestCase;
 
 final class ValueTest extends TestCase {
-
 	public static function provideValues() {
 		$closed_resource = \fopen('php://memory', 'rb');
 		\fclose($closed_resource);
@@ -29,11 +28,10 @@ final class ValueTest extends TestCase {
 	}
 
 	/**
-	 * @covers \Fleshgrinder\Core\Value::getType()
+	 * @covers       \Fleshgrinder\Core\Value::getType()
 	 * @dataProvider provideValues()
 	 */
 	public static function test($expected_type_name, $value) {
 		static::assertSame($expected_type_name, Value::getType($value));
 	}
-
 }

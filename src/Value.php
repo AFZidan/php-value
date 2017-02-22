@@ -7,10 +7,9 @@
 namespace Fleshgrinder\Core;
 
 /**
- * Methods to inspect PHP values.
+ * Inspect PHP values.
  */
 final class Value {
-
 	/** @see https://php.net/types.array */
 	const TYPE_ARRAY = 'array';
 
@@ -29,6 +28,9 @@ final class Value {
 	/** @see https://php.net/types.integer */
 	const TYPE_INT = 'integer';
 
+	/** @see https://php.net/types.iterable */
+	const TYPE_ITERABLE = 'iterable';
+
 	/** @see https://php.net/types.null */
 	const TYPE_NULL = 'null';
 
@@ -41,7 +43,7 @@ final class Value {
 	/** @see https://php.net/types.string */
 	const TYPE_STRING = 'string';
 
-	/** Final Abstract Class */
+	/** Final abstract class. */
 	private function __construct() { }
 
 	/**
@@ -107,7 +109,7 @@ final class Value {
 			return static::TYPE_RESOURCE;
 		}
 
-		if (\get_resource_type($value) === 'Unknown') {
+		if (@\get_resource_type($value) === 'Unknown') {
 			return static::TYPE_CLOSED_RESOURCE;
 		}
 
@@ -117,5 +119,4 @@ final class Value {
 		return 'unknown';
 		// @codeCoverageIgnoreEnd
 	}
-
 }

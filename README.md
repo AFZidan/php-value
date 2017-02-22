@@ -67,7 +67,7 @@ closed resource
 
 This output corresponds to the available constants in the class with the
  exception for the concrete class names and the additionally available
- callable pseudo type:
+ callable and iterable pseudo type names:
 
 ```php
 <?php
@@ -80,11 +80,11 @@ echo Value::TYPE_CALLABLE;          // callable
 echo Value::TYPE_CLOSED_RESOURCE;   // closed resource
 echo Value::TYPE_FLOAT;             // float
 echo Value::TYPE_INT;               // integer
+echo Value::TYPE_ITERABLE;          // iterable
 echo Value::TYPE_NULL;              // null
 echo Value::TYPE_OBJECT;            // object
 echo Value::TYPE_RESOURCE;          // resource
 echo Value::TYPE_STRING;            // string
-
 ```
 
 The method comes in very handy during the creation of error messages. One of
@@ -102,14 +102,10 @@ Which is not only cumbersome but also produces inconsistent type names due to
 $type = Value::getType($arg);
 ```
 
-The method never throws anything and does not emit errors and showed to be
- faster and lighter than PHP’s built-in `gettype` function. The reasons for this
- are beyond my understanding but micro benchmarking with tight loops showed
- exactly that. Whether this holds true in real world applications is a different
- question but completely irrelevant, since
- [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) is the most
- important principle of all principles and this tiny library is meant to
- provide exactly that without compromises or dependencies.
+The method never throws anything and does not emit errors. The sole goal of this
+ tiny library is to keep code [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)
+ as much as possible, after all, it is one of the most important principle of
+ them all.
 
 I tried to get this change into PHP core but it was rejected, see
  [PHP RFC: `var_type`](https://wiki.php.net/rfc/var_type) and the linked

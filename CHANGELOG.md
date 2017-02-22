@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
 
-## 1.0.0 - 2017-01-31
+## 1.0.0 - 2017-02-22
 Initial Release
 
 [Unreleased]: https://github.com/Fleshgrinder/php-value/compare/1.0.0...HEAD
