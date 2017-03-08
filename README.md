@@ -1,3 +1,6 @@
+[![Latest Stable Version](https://poser.pugx.org/fleshgrinder/value/v/stable)](https://packagist.org/packages/fleshgrinder/value)
+[![License](https://poser.pugx.org/fleshgrinder/value/license)](https://packagist.org/packages/fleshgrinder/value)
+[![Total Downloads](https://poser.pugx.org/fleshgrinder/value/downloads)](https://packagist.org/packages/fleshgrinder/value)
 # Value
 Modern replacement for PHP’s [`gettype`](https://php.net/gettype) function.
 
